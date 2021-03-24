@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>ImageCaptioning</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="icon" href="../static/images/caption_icon.png" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../static/css/style_return.css">
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row my-header d-block">
+			<div class="title">
+				<h1><img class="img-fluid" src="../static/images/caption_icon.png" width="75px" height="65px">Image Caption
+					Generator</h1>
+			</div>
+			<div class="typewritter line anim-typewriter">
+				A Neural Network based ML model for captioning images.
+			</div>
+		</div>
+		<div class="row my-content">
+
+			<div class="col-xl-3 my-left text-center">
+
+					<p class="font-weight-bold left-content">Get more things from your Images.</p>
+				<h6 class="left-content">&#10065; Caption for Sample images &#10065;</h6>
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+					</ol>
+					<div class="carousel-inner my-slide">
+						<div class="carousel-item active">
+							<img class="d-block w-100 rounded" src="../static/images/slide1.jpg" alt="First slide">
+							<!-- <div class="carousel-caption d-none d-md-block">
+							<p>man in red jacket snowboarding.</p>
+						  </div> -->
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100 rounded" src="../static/images/slide2.jpg" alt="Second slide">
+
+							<!-- <p><div class="carousel-caption d-none d-md-block">
+							<h5>...</h5>
+							<p>a group of people sitting around a table with laptop.</p>
+						  </div>
+						  </div>  -->
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100 h-100 rounded" src="../static/images/slide3.jpg" alt="Third slide">
+							<!-- <div class="carousel-caption d-none d-md-block">
+							<h5>...</h5>
+							<p>a person riding a motorcycle on a race track.</p>
+						</div> -->
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100 h-100 rounded" src="../static/images/slide4.jpg" alt="Fourth slide">
+							<!-- <div class="carousel-caption d-none d-md-block">
+							<p>a man in black shirt is playing guitar.</p>
+						  </div> -->
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+
+				</div>
+
+			</div>
+			<div class="col-xl-9 my-right">
+
+				<!-- <img id="outImage" src="images/image-upload.png"
+					class="img-responsive rounded mx-auto d-block uploadImage"
+					style="width:385px;height:295px;margin-bottom: 20px;" alt="Responsive image" /> -->
+					{% if generated_caption == null or generated_caption == "" %}
+					<img id="outImage" src="../static/images/image-upload.png"
+					class="img-responsive rounded mx-auto d-block uploadImage" alt="Responsive image" />
+
+					{% else %}
+					<img id="outImage2" src="{{ generated_caption['image'] }}"
+					class="img-responsive rounded mx-auto d-block uploadImage" alt="Responsive image" >
+					{% endif %}
+
+					{% if generated_caption %}
+						<div class="prediction_caption">
+							<p id= "captionID" class="text-center">{{ generated_caption['caption'] }}</p>
+						</div>
+					{% endif %}
+<!--				<div class="prediction_caption">-->
+<!--					<p class="text-center">{{generated_caption['caption']}}</p>-->
+<!--			</div>-->
+				<div class="form-items mx-auto" >
+					<div class="page-links" >
+						<a href="">Image Caption Generator</a>
+					</div>
+					<!--<form method="post" enctype="multipart/form-data">-->
+						<form method="POST"  action="/predict" enctype="multipart/form-data">
+							<input class="form-control" id ="inputImage"  type="file" accept="image/*" onchange="ChangeImage(event)" name="input_image" required>
+
+							<div class="form-button">
+								 <button id="submit" type="submit" class="ibtn button-effect">Predict !</button>
+							</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script>
+		function ChangeImage(e) {
+			var image = document.getElementById("outImage2");
+			image.src = URL.createObjectURL(e.target.files[0]);
+			window.document.getElementById("captionID").innerText = "";
+		}
+	</script>
+</body>
+
+</html>

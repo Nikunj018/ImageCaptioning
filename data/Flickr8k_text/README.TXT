@@ -1,0 +1,1 @@
+Download Flickr8k_text from :https://github.com/jbrownlee/Datasets/releases

@@ -1,0 +1,235 @@
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@469;500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Mukta:700');
+
+body {
+  height: 100vh;
+  /* width: 100vw; */
+}
+.my-header{
+	background-color:#0c3f5a;
+	padding : 15px;
+}
+.title{
+	color :#fff;
+	text-align : center;
+}
+.my-content{
+	/* height: 100%; */
+	height: 100vh;
+}
+.typewritter{
+	color:#d9d9d9 ;
+	text-align : center;
+}
+.my-left{
+	background-color: #e9f5fc;
+	padding:30px 45px;
+	height: 100%;
+	padding-top :140px;
+}
+.my-right{
+	background-color:#35a6e3;
+	padding:30px;
+	height: 100%;
+	padding-top :85px;
+}
+.left-content{
+	color :#0c3f5a ;
+}
+.font-weight-bold{
+	color :#0c3f5a ;
+	font-size: 120%;
+}
+.my-slide{
+	/* margin: 50px; */
+	margin-top: 20px;
+	box-shadow: 10px 10px 5px #a5d6f3;
+}
+.uploadImage{
+	border-radius: 10px;
+	box-shadow: 10px 10px 5px #1c8dca;
+	width:385px;
+	height:295px;
+	margin-bottom: 20px;
+}
+.prediction_caption{
+	font-family: 'Mukta', sans-serif;
+	color:#0f4e70;
+	font-weight :bold;
+	/*visibility: hidden;*/
+}
+.form-items{
+	margin-top: 35px;
+	border : solid #1c8dca 2px;
+	padding: 20px;
+	width: 47vh;
+	height: auto;
+	text-align: center;
+	border-radius: 5px;
+	box-shadow: 7px 7px 2px #1c8dca;
+	/* overflow: visible; */
+}
+.form-items:hover{
+	border : solid #1c8dca 3px;
+	box-shadow: 7px 7px 2px #1c83bb;
+}
+.page-links{
+	margin-bottom: 35px;
+}
+.form-items .page-links a {
+	font-family: 'Mukta', sans-serif;
+	border-bottom: solid #1c8dca 2px;
+	text-decoration: none;
+    padding-bottom: 3px;
+    color: #fff;
+	/* font-weight: bold; */
+	font-size: 110%;
+}
+.page-links a:hover{
+	border-bottom: solid #fff 2px;
+}
+.form-items .form-control{
+	color: #a6a6a6;
+	background-color: #fff;
+	text-align: center;
+	margin-top: 30px;
+	padding:  6px 10px;
+	width: 65%;
+	height: auto;
+	border-radius: 5px;
+	/* margin: 0 auto; */
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 80%;
+}
+.form-button {
+	margin-top: 30px;
+}
+
+.form-button .ibtn {
+	font-family: 'Mukta', sans-serif;
+	border-radius: 5px;
+    border: 0;
+    padding: 4px 24px;
+    background-color: #fff;
+    color: #0c3f5a;
+	/* font-size: 17px; */
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 95%;
+}
+.button-effect:hover {
+	background-position: 100%;
+	background-color:#35a6e3 ;
+	color: #fff;
+	border : solid #fff 1px;
+  }
+  @media (max-width: 1200px ) and (min-width: 992px){ 
+	.my-left{
+		height: auto;
+		padding :55px 255px;
+	}
+	.my-right{
+		height: auto;
+		padding: 75px 100px;
+	}
+} 
+  @media (max-width: 991px ) and (min-width: 769px){ 
+ 
+	.my-left{
+		height: auto;
+		padding :30px 155px;
+	}
+	.my-right{
+		height: auto;
+		padding: 75px 60px;
+	}
+} 
+
+  @media (max-width: 768px ) and (min-width: 517px){ 
+    /* .line   { 
+        display:none; 
+	}  */
+	.my-left{
+		height: auto;
+		padding :40px 80px;
+	}
+	.my-right{
+		height: auto;
+		padding: 30px 60px;
+	}
+} 
+@media (max-width: 518px){
+	.title h1{
+		font-size: 32px;
+	}
+    .line   { 
+        display:none; 
+	} 
+	.my-left{
+		height: auto;
+		padding :35px;
+	}
+	.my-right{
+		height: auto;
+		padding :35px;
+	}
+	.uploadImage{
+		width:100%;
+		height:auto;
+	}
+	.form-items{
+		/* padding : 15px auto; */
+		width: auto;
+	}
+} 
+
+/* @media (max-width: 1460px){ 
+
+    .my-left{
+		float:left;
+		width: 100%;
+	}
+	.my-right{
+		float:left;
+		width:100%
+	}
+	
+} */
+
+.line {
+	margin: 0 auto;
+	border-right: 2px solid rgb(0, 0, 0);
+	font-size: 105%;
+   /* text-align: center; */
+	white-space: nowrap;
+	overflow-x: hidden;
+   /* transform: translateY(-50%); */
+	font-family: 'Anonymous Pro', monospace;
+}
+.anim-typewriter {
+	/*animation: typewriter 4s steps(60) 1s 1 normal both;
+	blinkTextCursor 500ms steps(60) infinite normal;*/
+      animation: typewriter 2s steps(60) 1s 1 normal both,
+      blinkTextCursor 500ms steps(60)  ;
+}
+@keyframes typewriter {
+      from {
+            width: 0;
+      }
+      to {
+            width: 30em;
+      }
+}
+@keyframes blinkTextCursor {
+      from {
+            border-right-color: rgb(0, 0, 0);
+      }
+      to {
+            border-right-color:transparent;
+      }
+}
+
